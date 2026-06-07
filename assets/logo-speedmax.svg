@@ -1,0 +1,15 @@
+<svg width="640" height="180" viewBox="0 0 640 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="180" rx="18" fill="#F7A800"/>
+  <path d="M32 77H112" stroke="#F15B2B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M44 58H93" stroke="#F15B2B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M44 96H93" stroke="#F15B2B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M82 58H133" stroke="#F15B2B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M82 96H133" stroke="#F15B2B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M32 115H112" stroke="#102B77" stroke-width="8" stroke-linecap="round"/>
+  <path d="M44 134H93" stroke="#102B77" stroke-width="8" stroke-linecap="round"/>
+  <g transform="skewX(-14) translate(140 18)">
+    <text x="0" y="98" fill="#F15B2B" font-family="Montserrat, Arial, sans-serif" font-size="96" font-weight="900" letter-spacing="3">SPEED</text>
+  </g>
+  <text x="470" y="103" fill="#102B77" font-family="Montserrat, Arial, sans-serif" font-size="60" font-weight="900">MAX</text>
+  <text x="246" y="145" fill="#C45A15" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="12">I N T E R N E T</text>
+</svg>

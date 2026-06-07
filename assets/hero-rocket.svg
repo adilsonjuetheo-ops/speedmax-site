@@ -1,0 +1,37 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGlow" x1="120" y1="60" x2="610" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB236"/>
+      <stop offset="1" stop-color="#FF6A00"/>
+    </linearGradient>
+    <linearGradient id="bluePanel" x1="179" y1="165" x2="553" y2="551" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123D97"/>
+      <stop offset="1" stop-color="#071B45"/>
+    </linearGradient>
+    <linearGradient id="trail" x1="208" y1="404" x2="74" y2="484" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD38D"/>
+      <stop offset="1" stop-color="#FF7A00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <circle cx="360" cy="360" r="260" fill="url(#bgGlow)" opacity="0.16"/>
+  <circle cx="360" cy="360" r="188" fill="#0A2D69"/>
+  <circle cx="360" cy="360" r="154" fill="url(#bluePanel)"/>
+  <rect x="160" y="338" width="184" height="34" rx="17" fill="#FFB236" opacity="0.2"/>
+  <rect x="130" y="387" width="252" height="22" rx="11" fill="#FF7A00" opacity="0.18"/>
+  <path d="M303 212C355 150 442 162 484 212L537 274C584 327 580 409 529 450L412 547C371 582 312 581 273 545L237 512C205 482 199 431 223 392L303 212Z" fill="#F7F7F9"/>
+  <path d="M332 231C373 185 441 193 474 231L520 284C554 322 552 381 517 417L411 518C381 546 336 548 304 521L275 495C251 473 246 438 264 407L332 231Z" fill="#132F70"/>
+  <path d="M403 244C430 226 466 231 488 258C509 284 509 322 489 345L420 427C403 448 372 454 348 440C325 426 312 399 317 371L333 285C337 265 351 247 370 239L403 244Z" fill="#EAF2FF"/>
+  <circle cx="409" cy="321" r="56" fill="#FFB236"/>
+  <circle cx="409" cy="321" r="34" fill="#F7F7F9"/>
+  <path d="M258 514L181 615L299 557L258 514Z" fill="#FF6A00"/>
+  <path d="M510 314L607 282L533 384L510 314Z" fill="#FF8B1F"/>
+  <path d="M330 441L227 516C202 534 193 566 206 594L218 620L318 524L330 441Z" fill="#F15B2B"/>
+  <path d="M291 491L228 624L344 546L291 491Z" fill="#FFB236"/>
+  <path d="M243 456L96 511" stroke="url(#trail)" stroke-width="42" stroke-linecap="round"/>
+  <path d="M209 413L70 433" stroke="url(#trail)" stroke-width="26" stroke-linecap="round"/>
+  <path d="M228 368L94 337" stroke="url(#trail)" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="553" cy="180" r="18" fill="#FFB236"/>
+  <circle cx="590" cy="226" r="10" fill="#F15B2B"/>
+  <circle cx="152" cy="204" r="12" fill="#FFD38D"/>
+  <circle cx="132" cy="508" r="15" fill="#F15B2B"/>
+</svg>

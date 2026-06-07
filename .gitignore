@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+
+preview-home.png
+preview-home-desktop.png
+preview.out.log
+preview.err.log
+
+node_modules/
