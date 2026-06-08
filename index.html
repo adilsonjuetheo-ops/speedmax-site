@@ -14,11 +14,14 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260608-1" />
+  <link rel="stylesheet" href="styles.css?v=20260609-1" />
 </head>
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
   <div class="page-glow page-glow-left"></div>
   <div class="page-glow page-glow-right"></div>
+  <div class="page-glow page-glow-center"></div>
 
   <div class="site-shell">
     <header class="topbar" id="topbar">
@@ -44,6 +47,7 @@
           Central do Assinante
         </a>
         <a class="button button-primary" href="https://wa.me/5533988882633" target="_blank" rel="noreferrer">
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.24-1.43l-.37-.22-3.88 1.02 1.04-3.79-.24-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.44-7.54c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52s-.67-1.62-.92-2.21c-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.19-.57-.34z" fill="currentColor"/></svg>
           WhatsApp
         </a>
       </div>
@@ -58,32 +62,39 @@
     <main>
       <section class="hero" id="inicio">
         <div class="hero-copy reveal">
-          <span class="eyebrow">Internet fibra para a sua regiao</span>
-          <h1>Conecte sua casa ou empresa com a fibra que entrega velocidade de verdade na sua regiao.</h1>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Cobertura ativa em Divisa Alegre e Aguas Vermelhas
+          </div>
+          <h1>Internet fibra que entrega <span class="typed-text" id="typedText">velocidade real</span><span class="typed-cursor" aria-hidden="true"></span> na sua regiao.</h1>
           <p>
-            A Speed Max oferece internet fibra para Divisa Alegre e Aguas Vermelhas com planos promocionais,
-            atendimento proximo, suporte humano e estabilidade para streaming, estudos, trabalho e negocio.
+            A Speed Max oferece fibra optica com planos a partir de R$ 79,90, atendimento humano local
+            e instalacao rapida para sua casa, empresa ou negocio na regiao.
           </p>
 
           <div class="hero-actions">
             <a class="button button-primary button-large" href="https://wa.me/5533988882633" target="_blank" rel="noreferrer">
-              Contrate pelo WhatsApp
+              <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.24-1.43l-.37-.22-3.88 1.02 1.04-3.79-.24-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.44-7.54c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52s-.67-1.62-.92-2.21c-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.19-.57-.34z" fill="currentColor"/></svg>
+              Contratar pelo WhatsApp
             </a>
-            <a class="button button-ghost button-large" href="#planos">Ver planos</a>
+            <a class="button button-ghost button-large" href="#planos">
+              Ver planos
+              <svg class="btn-icon btn-icon-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
+            </a>
           </div>
 
           <div class="hero-stats">
             <div class="stat-card">
               <strong>200 a 600 MB</strong>
-              <span>Faixa de planos promocionais</span>
+              <span>Faixa de velocidades disponiveis</span>
             </div>
             <div class="stat-card">
-              <strong>2 cidades foco</strong>
+              <strong>2 cidades</strong>
               <span>Divisa Alegre e Aguas Vermelhas</span>
             </div>
             <div class="stat-card">
-              <strong>Atendimento local</strong>
-              <span>Suporte humano e proximo</span>
+              <strong>Suporte local</strong>
+              <span>Atendimento humano e proximo</span>
             </div>
           </div>
         </div>
@@ -92,20 +103,24 @@
           <div class="visual-ring ring-one"></div>
           <div class="visual-ring ring-two"></div>
           <div class="visual-ring ring-three"></div>
+          <div class="visual-ring ring-four"></div>
 
           <div class="hero-banner hero-banner-main">
-            <div class="banner-label">Campanha em destaque</div>
+            <div class="banner-label">
+              <span class="banner-dot"></span>
+              Planos em destaque
+            </div>
             <h2>Conecte-se com a melhor internet da regiao.</h2>
             <div class="banner-plans">
-              <div>
+              <div class="banner-plan-item">
                 <span>200 MB</span>
                 <strong>R$ 79,90</strong>
               </div>
-              <div>
+              <div class="banner-plan-item banner-plan-featured">
                 <span>300 MB</span>
                 <strong>R$ 89,90</strong>
               </div>
-              <div>
+              <div class="banner-plan-item">
                 <span>600 MB</span>
                 <strong>R$ 99,90</strong>
               </div>
@@ -113,36 +128,95 @@
           </div>
 
           <div class="hero-banner hero-banner-floating">
-            <span class="tag tag-orange">Wi-Fi potente</span>
-            <span class="tag tag-light">Instalacao rapida</span>
-            <span class="tag tag-blue">Atendimento regional</span>
+            <span class="tag tag-orange">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l2.09 4.26L17 7.27l-3.64 3.55.86 5.02L10 13.27l-4.22 2.57.86-5.02L3 7.27l4.91-.71z" fill="currentColor"/></svg>
+              Wi-Fi potente
+            </span>
+            <span class="tag tag-light">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13H9v-5h2v5zm0-7H9V6h2v2z" fill="currentColor"/></svg>
+              Instalacao rapida
+            </span>
+            <span class="tag tag-blue">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm.75-9.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM10 9a1 1 0 011 1v4a1 1 0 01-2 0v-4a1 1 0 011-1z" fill="currentColor"/></svg>
+              Atendimento regional
+            </span>
           </div>
 
-          <img class="hero-illustration" src="assets/hero-rocket.svg?v=20260608-1" alt="Ilustracao Speed Max" />
+          <img class="hero-illustration" src="assets/hero-rocket.svg?v=20260609-1" alt="Ilustracao Speed Max" />
         </div>
       </section>
 
-      <section class="ticker reveal" aria-label="Destaques da Speed Max">
+      <section class="ticker" aria-label="Destaques da Speed Max">
+        <div class="ticker-fade ticker-fade-left"></div>
         <div class="ticker-track">
-          <span>Atendimento em Divisa Alegre - MG</span>
-          <span>Suporte para Aguas Vermelhas - MG</span>
-          <span>Promocao de 200 MB por R$ 79,90</span>
-          <span>Promocao de 300 MB por R$ 89,90</span>
-          <span>Promocao de 600 MB por R$ 99,90</span>
-          <span>WhatsApp: (33) 9 8888-2633</span>
-          <span>Atendimento em Divisa Alegre - MG</span>
-          <span>Suporte para Aguas Vermelhas - MG</span>
-          <span>Promocao de 200 MB por R$ 79,90</span>
-          <span>Promocao de 300 MB por R$ 89,90</span>
-          <span>Promocao de 600 MB por R$ 99,90</span>
-          <span>WhatsApp: (33) 9 8888-2633</span>
+          <span>&#9889; Fibra em Divisa Alegre - MG</span>
+          <span>&#9889; Cobertura em Aguas Vermelhas - MG</span>
+          <span>&#9889; 200 MB por apenas R$ 79,90/mes</span>
+          <span>&#9889; 300 MB por apenas R$ 89,90/mes</span>
+          <span>&#9889; 600 MB por apenas R$ 99,90/mes</span>
+          <span>&#9889; WhatsApp: (33) 9 8888-2633</span>
+          <span>&#9889; Instalacao rapida na regiao</span>
+          <span>&#9889; Suporte humano e local</span>
+          <span>&#9889; Fibra em Divisa Alegre - MG</span>
+          <span>&#9889; Cobertura em Aguas Vermelhas - MG</span>
+          <span>&#9889; 200 MB por apenas R$ 79,90/mes</span>
+          <span>&#9889; 300 MB por apenas R$ 89,90/mes</span>
+          <span>&#9889; 600 MB por apenas R$ 99,90/mes</span>
+          <span>&#9889; WhatsApp: (33) 9 8888-2633</span>
+          <span>&#9889; Instalacao rapida na regiao</span>
+          <span>&#9889; Suporte humano e local</span>
+        </div>
+        <div class="ticker-fade ticker-fade-right"></div>
+      </section>
+
+      <section class="counters-section">
+        <div class="counters-grid">
+          <div class="counter-item reveal">
+            <div class="counter-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg>
+            </div>
+            <div class="counter-number">
+              <span class="counter-prefix">+</span><span class="counter-num" data-target="500">0</span>
+            </div>
+            <span class="counter-label">Clientes Conectados</span>
+          </div>
+
+          <div class="counter-item reveal reveal-delay-1">
+            <div class="counter-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+            </div>
+            <div class="counter-number">
+              <span class="counter-num" data-target="2">0</span>
+            </div>
+            <span class="counter-label">Cidades Atendidas</span>
+          </div>
+
+          <div class="counter-item reveal reveal-delay-2">
+            <div class="counter-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" fill="currentColor"/></svg>
+            </div>
+            <div class="counter-number">
+              <span class="counter-num" data-target="99">0</span><span class="counter-suffix">%</span>
+            </div>
+            <span class="counter-label">Uptime Garantido</span>
+          </div>
+
+          <div class="counter-item reveal reveal-delay-3">
+            <div class="counter-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.72L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5v-5l-2.28 2.28C6.81 18 5 15.21 5 12c0-4.08 3.05-7.44 7-7.93V2.05z" fill="currentColor"/></svg>
+            </div>
+            <div class="counter-number">
+              <span class="counter-num" data-target="600">0</span><span class="counter-suffix"> MB</span>
+            </div>
+            <span class="counter-label">Velocidade Maxima</span>
+          </div>
         </div>
       </section>
 
       <section class="plans" id="planos">
         <div class="section-heading center reveal">
           <span class="eyebrow">Planos Speed Max</span>
-          <h2>Planos pensados para quem quer navegar bem, pagar certo e contratar rapido pelo WhatsApp.</h2>
+          <h2>Planos pensados para quem quer navegar bem, pagar certo e contratar rapido.</h2>
           <p>
             Escolha a velocidade ideal para a sua rotina e fale direto com a equipe da Speed Max para consultar cobertura e instalacao.
           </p>
@@ -150,45 +224,58 @@
 
         <div class="plans-grid">
           <article class="plan-card reveal">
-            <span class="plan-badge">Mais acessivel</span>
-            <div class="plan-speed">200 <small>MB</small></div>
-            <p class="plan-price">R$ 79,90 <span>/ mes</span></p>
-            <ul>
-              <li>Streaming e redes sociais sem aperto</li>
-              <li>Ideal para estudo e uso diario</li>
-              <li>Instalacao agil na regiao</li>
-            </ul>
-            <a class="button button-primary" href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20200MB" target="_blank" rel="noreferrer">
-              Quero este plano
-            </a>
+            <div class="plan-card-inner">
+              <span class="plan-badge">Mais acessivel</span>
+              <div class="plan-speed">200 <small>MB/s</small></div>
+              <div class="plan-speed-bar"><div class="plan-speed-fill" style="--fill: 33%"></div></div>
+              <p class="plan-price"><span class="plan-from">por</span> R$ 79,90 <span class="plan-period">/ mes</span></p>
+              <ul>
+                <li>Streaming e redes sociais sem aperto</li>
+                <li>Ideal para estudo e uso diario</li>
+                <li>Instalacao agil na regiao</li>
+                <li>Suporte local pelo WhatsApp</li>
+              </ul>
+              <a class="button button-primary plan-btn" href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20200MB" target="_blank" rel="noreferrer">
+                Quero este plano
+              </a>
+            </div>
           </article>
 
           <article class="plan-card featured reveal reveal-delay-1">
-            <span class="plan-badge">Mais pedido</span>
-            <div class="plan-speed">300 <small>MB</small></div>
-            <p class="plan-price">R$ 89,90 <span>/ mes</span></p>
-            <ul>
-              <li>Mais folga para varios aparelhos</li>
-              <li>Otimo para TV, home office e chamadas</li>
-              <li>Plano ideal para familia conectada</li>
-            </ul>
-            <a class="button button-dark" href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20300MB" target="_blank" rel="noreferrer">
-              Contratar agora
-            </a>
+            <div class="plan-popular-ribbon">Mais pedido</div>
+            <div class="plan-card-inner">
+              <span class="plan-badge">Recomendado</span>
+              <div class="plan-speed">300 <small>MB/s</small></div>
+              <div class="plan-speed-bar"><div class="plan-speed-fill" style="--fill: 60%"></div></div>
+              <p class="plan-price"><span class="plan-from">por</span> R$ 89,90 <span class="plan-period">/ mes</span></p>
+              <ul>
+                <li>Mais folga para varios aparelhos</li>
+                <li>Otimo para TV, home office e chamadas</li>
+                <li>Plano ideal para familia conectada</li>
+                <li>Suporte prioritario pelo WhatsApp</li>
+              </ul>
+              <a class="button button-dark plan-btn" href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20300MB" target="_blank" rel="noreferrer">
+                Contratar agora
+              </a>
+            </div>
           </article>
 
           <article class="plan-card reveal reveal-delay-2">
-            <span class="plan-badge">Alta performance</span>
-            <div class="plan-speed">600 <small>MB</small></div>
-            <p class="plan-price">R$ 99,90 <span>/ mes</span></p>
-            <ul>
-              <li>Casa inteligente e uso intenso</li>
-              <li>Downloads rapidos e jogos online</li>
-              <li>Excelente para negocio local</li>
-            </ul>
-            <a class="button button-primary" href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20600MB" target="_blank" rel="noreferrer">
-              Falar com vendedor
-            </a>
+            <div class="plan-card-inner">
+              <span class="plan-badge">Alta performance</span>
+              <div class="plan-speed">600 <small>MB/s</small></div>
+              <div class="plan-speed-bar"><div class="plan-speed-fill" style="--fill: 100%"></div></div>
+              <p class="plan-price"><span class="plan-from">por</span> R$ 99,90 <span class="plan-period">/ mes</span></p>
+              <ul>
+                <li>Casa inteligente e uso intenso</li>
+                <li>Downloads rapidos e jogos online</li>
+                <li>Excelente para negocio local</li>
+                <li>Maximo desempenho disponivel</li>
+              </ul>
+              <a class="button button-primary plan-btn" href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20600MB" target="_blank" rel="noreferrer">
+                Falar com vendedor
+              </a>
+            </div>
           </article>
         </div>
       </section>
@@ -204,32 +291,56 @@
             </p>
             <div class="feature-list">
               <div class="feature-item">
-                <strong>Instalacao agil na regiao</strong>
-                <span>Mais rapidez para voce sair do interesse e entrar logo na rotina conectada.</span>
+                <div class="feature-item-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 10h-2V8h2v2zm0 6h-2v-4h2v4zm6-10H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H5V8h14v10z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                  <strong>Instalacao agil na regiao</strong>
+                  <span>Mais rapidez para voce sair do interesse e entrar logo na rotina conectada.</span>
+                </div>
               </div>
               <div class="feature-item">
-                <strong>Suporte mais proximo</strong>
-                <span>Atendimento humano para quem valoriza falar com gente da propria regiao.</span>
+                <div class="feature-item-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1C8.14 1 5 4.14 5 8c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 5.5 12 5.5s2.5 1.12 2.5 2.5S13.38 10.5 12 10.5z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                  <strong>Suporte mais proximo</strong>
+                  <span>Atendimento humano para quem valoriza falar com gente da propria regiao.</span>
+                </div>
               </div>
               <div class="feature-item">
-                <strong>Velocidade com estabilidade</strong>
-                <span>Conexao preparada para varios aparelhos ligados ao mesmo tempo.</span>
+                <div class="feature-item-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                  <strong>Velocidade com estabilidade</strong>
+                  <span>Conexao preparada para varios aparelhos ligados ao mesmo tempo.</span>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="showcase-media reveal reveal-delay-1">
             <div class="stack-card stack-card-top">
+              <div class="stack-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/></svg>
+              </div>
               <span>Atendimento local</span>
               <strong>Presenca regional em Divisa Alegre e Aguas Vermelhas</strong>
             </div>
             <div class="stack-card stack-card-center">
+              <div class="stack-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="currentColor"/></svg>
+              </div>
               <span>Planos em destaque</span>
               <strong>Ofertas para diferentes perfis de consumo</strong>
             </div>
             <div class="stack-card stack-card-bottom">
+              <div class="stack-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"/></svg>
+              </div>
               <span>Experiencia completa</span>
-              <strong>Venda, suporte e cobertura bem apresentados</strong>
+              <strong>Venda, suporte e cobertura bem estruturados</strong>
             </div>
           </div>
         </div>
@@ -243,17 +354,23 @@
 
         <div class="benefits-grid">
           <article class="benefit-card reveal">
-            <div class="benefit-icon">01</div>
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z" fill="currentColor"/></svg>
+            </div>
             <h3>Atendimento mais proximo</h3>
             <p>Quem contrata um provedor regional quer falar com alguem que realmente conheca a cidade e a necessidade local.</p>
           </article>
           <article class="benefit-card reveal reveal-delay-1">
-            <div class="benefit-icon">02</div>
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25S13.24 11.25 12 11.25 9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z" fill="currentColor"/></svg>
+            </div>
             <h3>Sinal para a rotina inteira</h3>
             <p>Mais conforto para TV, chamadas, estudo, trabalho remoto e uso simultaneo de varios aparelhos.</p>
           </article>
           <article class="benefit-card reveal reveal-delay-2">
-            <div class="benefit-icon">03</div>
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"/></svg>
+            </div>
             <h3>Oferta clara e objetiva</h3>
             <p>Planos, cidade atendida, suporte e contato rapido organizados para facilitar a decisao de contratar.</p>
           </article>
@@ -263,45 +380,82 @@
       <section class="testimonials" id="depoimentos">
         <div class="section-heading center reveal">
           <span class="eyebrow">Depoimentos</span>
-          <h2>Quem procura um provedor local quer seguranca, rapidez e uma internet que realmente entregue.</h2>
+          <h2>Quem escolhe a Speed Max escolhe estabilidade, atendimento e internet que funciona de verdade.</h2>
           <p>
-            Esta secao ja esta pronta para receber os depoimentos reais da Speed Max. Por enquanto, os cards abaixo servem como demonstracao visual.
+            Veja o que nossos clientes falam sobre a experiencia com a Speed Max na regiao.
           </p>
         </div>
 
         <div class="testimonial-slider reveal">
-          <button class="slider-arrow" id="prevTestimonial" type="button" aria-label="Depoimento anterior">‹</button>
+          <button class="slider-arrow" id="prevTestimonial" type="button" aria-label="Depoimento anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></svg>
+          </button>
           <div class="testimonial-track-wrap">
             <div class="testimonial-track" id="testimonialTrack">
               <article class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-stars">
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                </div>
                 <p>
                   "Atendimento rapido, instalacao sem dor de cabeca e internet estavel para a rotina de casa. Foi o que mais pesou na escolha."
                 </p>
-                <strong>Maria C.</strong>
-                <span>Depoimento demonstrativo</span>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar">M</div>
+                  <div>
+                    <strong>Maria C.</strong>
+                    <span>Divisa Alegre - MG</span>
+                  </div>
+                </div>
               </article>
 
               <article class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-stars">
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                </div>
                 <p>
                   "Aqui em casa usamos varios aparelhos ao mesmo tempo e a conexao ficou muito melhor. O suporte tambem responde rapido."
                 </p>
-                <strong>Joao R.</strong>
-                <span>Depoimento demonstrativo</span>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar">J</div>
+                  <div>
+                    <strong>Joao R.</strong>
+                    <span>Aguas Vermelhas - MG</span>
+                  </div>
+                </div>
               </article>
 
               <article class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-stars">
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.45.91-5.33L2.27 6.62l5.34-.78z" fill="#ffb133"/></svg>
+                </div>
                 <p>
                   "Para quem trabalha online e ainda quer ver filmes sem travar, faz diferenca contratar um provedor que atende de perto."
                 </p>
-                <strong>Ana P.</strong>
-                <span>Depoimento demonstrativo</span>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar">A</div>
+                  <div>
+                    <strong>Ana P.</strong>
+                    <span>Divisa Alegre - MG</span>
+                  </div>
+                </div>
               </article>
             </div>
           </div>
-          <button class="slider-arrow" id="nextTestimonial" type="button" aria-label="Proximo depoimento">›</button>
+          <button class="slider-arrow" id="nextTestimonial" type="button" aria-label="Proximo depoimento">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+          </button>
         </div>
       </section>
 
@@ -314,7 +468,10 @@
         <div class="map-grid">
           <article class="map-card reveal">
             <div class="map-card-copy">
-              <span>Divisa Alegre - MG</span>
+              <div class="map-card-tag">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+                Divisa Alegre - MG
+              </div>
               <h3>Atendimento com foco local</h3>
               <p>Cidade atendida com proposta de proximidade, suporte regional e consulta rapida de cobertura.</p>
             </div>
@@ -328,7 +485,10 @@
 
           <article class="map-card reveal reveal-delay-1">
             <div class="map-card-copy">
-              <span>Aguas Vermelhas - MG</span>
+              <div class="map-card-tag">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+                Aguas Vermelhas - MG
+              </div>
               <h3>Expansao e suporte regional</h3>
               <p>Mais uma frente de cobertura para reforcar presenca, crescimento e relacionamento com o cliente.</p>
             </div>
@@ -344,7 +504,7 @@
 
       <section class="faq-section" id="faq">
         <div class="section-heading center reveal">
-          <span class="eyebrow">FAQ</span>
+          <span class="eyebrow">Perguntas frequentes</span>
           <h2>Tire suas duvidas antes de contratar.</h2>
         </div>
 
@@ -352,7 +512,9 @@
           <article class="faq-item">
             <button class="faq-question" type="button">
               <span>Como verifico se minha rua tem cobertura?</span>
-              <span class="faq-symbol">+</span>
+              <span class="faq-symbol">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/></svg>
+              </span>
             </button>
             <div class="faq-answer">
               <p>Basta chamar no WhatsApp da Speed Max com o seu endereco. A equipe confirma a disponibilidade e orienta o melhor plano para a sua necessidade.</p>
@@ -362,7 +524,9 @@
           <article class="faq-item">
             <button class="faq-question" type="button">
               <span>Qual plano e melhor para varios aparelhos ligados ao mesmo tempo?</span>
-              <span class="faq-symbol">+</span>
+              <span class="faq-symbol">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/></svg>
+              </span>
             </button>
             <div class="faq-answer">
               <p>Em geral, o plano de 300 MB atende muito bem familias conectadas. Para uso intenso, casa inteligente ou pequeno negocio, o de 600 MB tende a ser o mais confortavel.</p>
@@ -372,25 +536,41 @@
           <article class="faq-item">
             <button class="faq-question" type="button">
               <span>Como falo com suporte ou central do assinante?</span>
-              <span class="faq-symbol">+</span>
+              <span class="faq-symbol">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/></svg>
+              </span>
             </button>
             <div class="faq-answer">
               <p>Os atalhos da pagina ja levam direto para o WhatsApp da Speed Max, inclusive para atendimento relacionado a suporte e central do assinante.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Quanto tempo demora a instalacao depois de contratar?</span>
+              <span class="faq-symbol">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <p>A Speed Max trabalha com instalacao agil. Apos confirmar o pedido pelo WhatsApp, nossa equipe agenda a visita tecnica no menor prazo possivel dentro da regiao.</p>
             </div>
           </article>
         </div>
       </section>
 
       <section class="cta-banner reveal" id="assinante">
-        <div>
+        <div class="cta-glow"></div>
+        <div class="cta-content">
           <span class="eyebrow">Atendimento Speed Max</span>
-          <h2>Pronto para contratar a sua internet ou falar com a equipe da Speed Max?</h2>
+          <h2>Pronto para contratar ou tirar duvidas sobre sua internet?</h2>
           <p>
-            Fale agora pelo WhatsApp para consultar cobertura, tirar duvidas sobre os planos e pedir apoio com a central do assinante.
+            Fale agora pelo WhatsApp para consultar cobertura, escolher o melhor plano e receber suporte rapido da nossa equipe local.
           </p>
         </div>
         <div class="cta-actions">
           <a class="button button-primary button-large" href="https://wa.me/5533988882633" target="_blank" rel="noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.24-1.43l-.37-.22-3.88 1.02 1.04-3.79-.24-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.44-7.54c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52s-.67-1.62-.92-2.21c-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.19-.57-.34z" fill="currentColor"/></svg>
             WhatsApp: (33) 9 8888-2633
           </a>
           <a
@@ -406,34 +586,52 @@
     </main>
 
     <footer class="footer" id="contato">
-      <div>
+      <div class="footer-brand">
         <img src="assets/logo-speedmax.svg" alt="Logo Speed Max Internet" />
-        <p>Speed Max Internet para Divisa Alegre e Aguas Vermelhas com planos promocionais, atendimento proximo e estrutura pronta para crescer com a marca.</p>
+        <p>Internet fibra para Divisa Alegre e Aguas Vermelhas. Planos acessiveis, atendimento local e estrutura para crescer com voce.</p>
       </div>
 
-      <div>
+      <div class="footer-col">
         <h3>Contato</h3>
-        <a href="https://wa.me/5533988882633" target="_blank" rel="noreferrer">WhatsApp: (33) 9 8888-2633</a>
-        <a href="https://wa.me/5533988882633?text=Ola%2C%20preciso%20de%20ajuda%20com%20a%20central%20do%20assinante" target="_blank" rel="noreferrer">Central do Assinante</a>
+        <a href="https://wa.me/5533988882633" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.9 11.9 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52z" fill="currentColor"/></svg>
+          WhatsApp: (33) 9 8888-2633
+        </a>
+        <a href="https://wa.me/5533988882633?text=Ola%2C%20preciso%20de%20ajuda%20com%20a%20central%20do%20assinante" target="_blank" rel="noreferrer">
+          Central do Assinante
+        </a>
       </div>
 
-      <div>
+      <div class="footer-col">
         <h3>Cobertura</h3>
         <span>Divisa Alegre - MG</span>
         <span>Aguas Vermelhas - MG</span>
       </div>
+
+      <div class="footer-col">
+        <h3>Planos</h3>
+        <a href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20200MB" target="_blank" rel="noreferrer">Plano 200 MB — R$ 79,90</a>
+        <a href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20300MB" target="_blank" rel="noreferrer">Plano 300 MB — R$ 89,90</a>
+        <a href="https://wa.me/5533988882633?text=Ola%2C%20quero%20contratar%20o%20plano%20de%20600MB" target="_blank" rel="noreferrer">Plano 600 MB — R$ 99,90</a>
+      </div>
     </footer>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Speed Max Internet. Todos os direitos reservados.</span>
+    </div>
   </div>
 
   <div class="whatsapp-widget" id="whatsappWidget">
     <div class="whatsapp-card">
-      <button class="whatsapp-close" id="whatsappClose" type="button" aria-label="Fechar aviso do WhatsApp">×</button>
+      <button class="whatsapp-close" id="whatsappClose" type="button" aria-label="Fechar aviso do WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/></svg>
+      </button>
       <div class="whatsapp-avatar" aria-hidden="true">
         <span>S</span>
       </div>
       <div class="whatsapp-copy">
-        <strong>Ola 👋</strong>
-        <p>Tem um projeto ou ideia? Me chama agora e a gente coloca no ar! 🚀</p>
+        <strong>Speed Max 👋</strong>
+        <p>Oi! Fala com a gente pelo WhatsApp e contrate seu plano agora. Rapido e sem burocracia! 🚀</p>
       </div>
     </div>
 
@@ -451,6 +649,6 @@
     </a>
   </div>
 
-  <script src="script.js?v=20260608-1"></script>
+  <script src="script.js?v=20260609-1"></script>
 </body>
 </html>
