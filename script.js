@@ -5,6 +5,8 @@ const faqQuestions = document.querySelectorAll(".faq-question");
 const testimonialTrack = document.getElementById("testimonialTrack");
 const prevTestimonial = document.getElementById("prevTestimonial");
 const nextTestimonial = document.getElementById("nextTestimonial");
+const whatsappWidget = document.getElementById("whatsappWidget");
+const whatsappClose = document.getElementById("whatsappClose");
 
 if (menuToggle && topbar) {
   menuToggle.addEventListener("click", () => {
@@ -121,4 +123,10 @@ if (testimonialTrack && prevTestimonial && nextTestimonial) {
 
   window.addEventListener("resize", updateSlider);
   updateSlider();
+}
+
+if (whatsappWidget && whatsappClose) {
+  whatsappClose.addEventListener("click", () => {
+    whatsappWidget.classList.add("is-hidden");
+  });
 }
